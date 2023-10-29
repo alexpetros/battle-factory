@@ -1,5 +1,6 @@
-:- include('db/styles').
 :- include('db/mons').
+:- include('db/sets').
+:- include('db/styles').
 
 team(X, Y, Z) :-
   pokemon(X), pokemon(Y), pokemon(Z),
