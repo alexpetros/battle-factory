@@ -1,3 +1,5 @@
+:- include('db/mons').
+
 team(X, Y, Z) :-
   pokemon(X), pokemon(Y), pokemon(Z),
   X \== Y, Y\== Z, X \== Z.

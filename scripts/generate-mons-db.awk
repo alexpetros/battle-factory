@@ -2,7 +2,7 @@ BEGIN {
   FS = "\t"
 }
 
-NR == 1 { next }
+NR == 1 { next; }
 {
   species = $3 == "Mr. Mime" ? "mr_mime" : tolower($3)
   number = $4
