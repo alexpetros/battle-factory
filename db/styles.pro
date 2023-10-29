@@ -1,156 +1,166 @@
-style(preparation, Acid Armor).
-style(preparation, Agility).
-style(preparation, Amnesia).
-style(preparation, Barrier).
-style(preparation, Belly Drum).
-style(preparation, Bulk Up).
-style(preparation, Calm Mind).
-style(preparation, Charge).
-style(preparation, Conversion).
-style(preparation, Conversion2).
-style(preparation, Cosmic Power).
-style(preparation, Defense Curl).
-style(preparation, Double Team).
-style(preparation, Dragon Dance).
-style(preparation, Focus Energy).
-style(preparation, Growth).
-style(preparation, Harden).
-style(preparation, Howl).
-style(preparation, Iron Defense).
-style(preparation, Meditate).
-style(preparation, Minimize).
-style(preparation, Psych Up).
-style(preparation, Sharpen).
-style(preparation, Snatch).
-style(preparation, Swords Dance).
-style(preparation, Tail Glow).
-style(preparation, Withdraw).
+style(preparation, 'acid armor').
+style(preparation, 'agility').
+style(preparation, 'amnesia').
+style(preparation, 'barrier').
+style(preparation, 'belly drum').
+style(preparation, 'bulk up').
+style(preparation, 'calm mind').
+style(preparation, 'charge').
+style(preparation, 'conversion').
+style(preparation, 'conversion2').
+style(preparation, 'cosmic power').
+style(preparation, 'defense curl').
+style(preparation, 'double team').
+style(preparation, 'dragon dance').
+style(preparation, 'focus energy').
+style(preparation, 'growth').
+style(preparation, 'harden').
+style(preparation, 'howl').
+style(preparation, 'iron defense').
+style(preparation, 'meditate').
+style(preparation, 'minimize').
+style(preparation, 'psych up').
+style(preparation, 'sharpen').
+style(preparation, 'snatch').
+style(preparation, 'swords dance').
+style(preparation, 'tail glow').
+style(preparation, 'withdraw').
 
-style(slow, Attract).
-style(slow, Block).
-style(slow, Confuse Ray).
-style(slow, Disable).
-style(slow, Encore).
-style(slow, Flatter).
-style(slow, Glare).
-style(slow, GrassWhistle).
-style(slow, Hypnosis).
-style(slow, Imprison).
-style(slow, Leech Seed).
-style(slow, Lovely Kiss).
-style(slow, Mean Look).
-style(slow, Poison Gas).
-style(slow, PoisonPowder).
-style(slow, Sing).
-style(slow, Sleep Powder).
-style(slow, Snatch).
-style(slow, Spider Web).
-style(slow, Spikes).
-style(slow, Spore).
-style(slow, Stun Spore).
-style(slow, Supersonic).
-style(slow, Swagger).
-style(slow, Sweet Kiss).
-style(slow, Taunt).
-style(slow, Teeter Dance).
-style(slow, Thunder Wave).
-style(slow, Torment).
-style(slow, Toxic).
-style(slow, Yawn).
-style(slow, Will-O-Wisp).
+style(slow, 'attract').
+style(slow, 'block').
+style(slow, 'confuse ray').
+style(slow, 'disable').
+style(slow, 'encore').
+style(slow, 'flatter').
+style(slow, 'glare').
+style(slow, 'grasswhistle').
+style(slow, 'hypnosis').
+style(slow, 'imprison').
+style(slow, 'leech seed').
+style(slow, 'lovely kiss').
+style(slow, 'mean look').
+style(slow, 'poison gas').
+style(slow, 'poisonpowder').
+style(slow, 'sing').
+style(slow, 'sleep powder').
+style(slow, 'snatch').
+style(slow, 'spider web').
+style(slow, 'spikes').
+style(slow, 'spore').
+style(slow, 'stun spore').
+style(slow, 'supersonic').
+style(slow, 'swagger').
+style(slow, 'sweet kiss').
+style(slow, 'taunt').
+style(slow, 'teeter dance').
+style(slow, 'thunder wave').
+style(slow, 'torment').
+style(slow, 'toxic').
+style(slow, 'yawn').
+style(slow, 'will-o-wisp').
 
-style(endurance, Aromatherapy).
-style(endurance, Baton Pass).
-style(endurance, Detect).
-style(endurance, Endure).
-style(endurance, Haze).
-style(endurance, Heal Bell).
-style(endurance, Ingrain).
-style(endurance, Light Screen).
-style(endurance, Magic Coat).
-style(endurance, Milk Drink).
-style(endurance, Mist).
-style(endurance, Moonlight).
-style(endurance, Morning Sun).
-style(endurance, Mud Sport).
-style(endurance, Protect).
-style(endurance, Recover).
-style(endurance, Reflect).
-style(endurance, Rest).
-style(endurance, Safeguard).
-style(endurance, Slack Off).
-style(endurance, Softboiled).
-style(endurance, Swallow).
-style(endurance, Synthesis).
-style(endurance, Recycle).
-style(endurance, Refresh).
-style(endurance, Water Sport).
-style(endurance, Wish).
+style(endurance, 'aromatherapy').
+style(endurance, 'baton pass').
+style(endurance, 'detect').
+style(endurance, 'endure').
+style(endurance, 'haze').
+style(endurance, 'heal bell').
+style(endurance, 'ingrain').
+style(endurance, 'light screen').
+style(endurance, 'magic coat').
+style(endurance, 'milk drink').
+style(endurance, 'mist').
+style(endurance, 'moonlight').
+style(endurance, 'morning sun').
+style(endurance, 'mud sport').
+style(endurance, 'protect').
+style(endurance, 'recover').
+style(endurance, 'reflect').
+style(endurance, 'rest').
+style(endurance, 'safeguard').
+style(endurance, 'slack off').
+style(endurance, 'softboiled').
+style(endurance, 'swallow').
+style(endurance, 'synthesis').
+style(endurance, 'recycle').
+style(endurance, 'refresh').
+style(endurance, 'water sport').
+style(endurance, 'wish').
 
-style(risk, Bide).
-style(risk, Blast Burn).
-style(risk, Counter).
-style(risk, Destiny Bond).
-style(risk, Double-Edge).
-style(risk, Explosion).
-style(risk, Facade).
-style(risk, Fissure).
-style(risk, Flail).
-style(risk, Focus Punch).
-style(risk, Frenzy Plant).
-style(risk, Grudge).
-style(risk, Guillotine).
-style(risk, Horn Drill).
-style(risk, Hydro Cannon).
-style(risk, Hyper Beam).
-style(risk, Memento).
-style(risk, Mirror Coat).
-style(risk, Overheat).
-style(risk, Pain Split).
-style(risk, Perish Song).
-style(risk, Psycho Boost).
-style(risk, Reversal).
-style(risk, Selfdestruct).
-style(risk, Sky Attack).
-style(risk, Volt Tackle).
+style(risk, 'bide').
+style(risk, 'blast burn').
+style(risk, 'counter').
+style(risk, 'destiny bond').
+style(risk, 'double-edge').
+style(risk, 'explosion').
+style(risk, 'facade').
+style(risk, 'fissure').
+style(risk, 'flail').
+style(risk, 'focus punch').
+style(risk, 'frenzy plant').
+style(risk, 'grudge').
+style(risk, 'guillotine').
+style(risk, 'horn drill').
+style(risk, 'hydro cannon').
+style(risk, 'hyper beam').
+style(risk, 'memento').
+style(risk, 'mirror coat').
+style(risk, 'overheat').
+style(risk, 'pain split').
+style(risk, 'perish song').
+style(risk, 'psycho boost').
+style(risk, 'reversal').
+style(risk, 'selfdestruct').
+style(risk, 'sky attack').
+style(risk, 'volt tackle').
 
-style(weakening, Charm).
-style(weakening, Cotton Spore).
-style(weakening, Fake Tears).
-style(weakening, FeatherDance).
-style(weakening, Flash).
-style(weakening, Growl).
-style(weakening, Kinesis).
-style(weakening, Knock Off).
-style(weakening, Leer).
-style(weakening, Metal Sound).
-style(weakening, Sand-Attack).
-style(weakening, Scary Face).
-style(weakening, Screech).
-style(weakening, SmokeScreen).
-style(weakening, Spite).
-style(weakening, String Shot).
-style(weakening, Sweet Scent).
-style(weakening, Tail Whip).
-style(weakening, Tickle).
+style(weakening, 'charm').
+style(weakening, 'cotton spore').
+style(weakening, 'fake tears').
+style(weakening, 'featherdance').
+style(weakening, 'flash').
+style(weakening, 'growl').
+style(weakening, 'kinesis').
+style(weakening, 'knock off').
+style(weakening, 'leer').
+style(weakening, 'metal sound').
+style(weakening, 'sand-attack').
+style(weakening, 'scary face').
+style(weakening, 'screech').
+style(weakening, 'smokescreen').
+style(weakening, 'spite').
+style(weakening, 'string shot').
+style(weakening, 'sweet scent').
+style(weakening, 'tail whip').
+style(weakening, 'tickle').
 
-style(unpredictable, Assist).
-style(unpredictable, Camouflage).
-style(unpredictable, Curse).
-style(unpredictable, Follow Me).
-style(unpredictable, Metronome).
-style(unpredictable, Mimic).
-style(unpredictable, Mirror Move).
-style(unpredictable, Present).
-style(unpredictable, Role Play).
-style(unpredictable, Sketch).
-style(unpredictable, Skill Swap).
-style(unpredictable, Substitute).
-style(unpredictable, Transform).
-style(unpredictable, Trick).
+style(unpredictable, 'assist').
+style(unpredictable, 'camouflage').
+style(unpredictable, 'curse').
+style(unpredictable, 'follow me').
+style(unpredictable, 'metronome').
+style(unpredictable, 'mimic').
+style(unpredictable, 'mirror move').
+style(unpredictable, 'present').
+style(unpredictable, 'role play').
+style(unpredictable, 'sketch').
+style(unpredictable, 'skill swap').
+style(unpredictable, 'substitute').
+style(unpredictable, 'transform').
+style(unpredictable, 'trick').
 
-style(flow, Hail).
-style(flow, Rain Dance).
-style(flow, Sandstorm).
-style(flow, Sunny Day).
-style(flow, Weather Bal).
+style(flow, 'hail').
+style(flow, 'rain dance').
+style(flow, 'sandstorm').
+style(flow, 'sunny day').
+style(flow, 'weather ball').
+
+style(none, Y) :-
+    \+style(preparation, Y),
+    \+style(slow, Y),
+    \+style(endurance, Y),
+    \+style(risk, Y),
+    \+style(weakening, Y),
+    \+style(unpredictable, Y),
+    \+style(flow, Y).
+

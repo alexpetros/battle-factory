@@ -1,3 +1,4 @@
+:- include('db/styles').
 :- include('db/mons').
 
 team(X, Y, Z) :-
