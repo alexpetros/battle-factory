@@ -35,6 +35,6 @@ END {
     species = separate[1]
     num = separate[2]
     move = moves[mon]
-    printf("move(%s, %s, '%s').\n", species, num, tolower(move)) >> "db/sets.pro"
+    printf("move(%s, %s, '%s').\n", species, num, tolower(move)) > "db/sets.pro"
   }
 }
