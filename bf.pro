@@ -1,6 +1,6 @@
 :- include('db/mons.pro').
 :- include('db/sets.pro').
-:- include('db/styles.pro').
+:- include('db/moves.pro').
 
 bf(Team, Phrase) :-
   % Break the team down into Mons and their Set Numbers
