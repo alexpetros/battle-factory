@@ -2,8 +2,6 @@
 :- include('db/sets.pro').
 :- include('db/moves.pro').
 
-% trainer_style(Phrase, Moves) :-
-
 % True if List contains all the items in the first parameter
 contains_all([], _).
 contains_all([Head|Tail], List) :-
@@ -11,7 +9,7 @@ contains_all([Head|Tail], List) :-
   contains_all(Tail, List).
 
 % True if Style is found at least X times in the list
-style_matches(_, Count, []) :- Count =< 0.
+style_matches(_, 0, X) :- is_list(X).
 style_matches(Style, Count, [Head|Tail]) :-
   style(Style, Head),
   NextCount is Count - 1,
@@ -28,27 +26,41 @@ trainer_style(risk, Moves) :- style_matches(risk, 2, Moves), !.
 trainer_style(endurance, Moves) :- style_matches(endurance, 3, Moves), !.
 trainer_style(slow, Moves) :- style_matches(slow, 3, Moves), !.
 trainer_style(preparation, Moves) :- style_matches(preparation, 3, Moves), !.
+trainer_style(free, _).
 
-trainer_style(free, Moves) :-
-  \+trainer_style(flow, Moves),
-  \+trainer_style(unpredictable, Moves),
-  \+trainer_style(weakening, Moves),
-  \+trainer_style(risk, Moves),
-  \+trainer_style(endurance, Moves),
-  \+trainer_style(slow, Moves),
-  \+trainer_style(preparation, Moves).
+% trainer_style(free, Moves) :-
+%   \+trainer_style(flow, Moves),
+%   \+trainer_style(unpredictable, Moves),
+%   \+trainer_style(weakening, Moves),
+%   \+trainer_style(risk, Moves),
+%   \+trainer_style(endurance, Moves),
+%   \+trainer_style(slow, Moves),
+%   \+trainer_style(preparation, Moves).
 
 moves_seen(Mon, Num, Moves) :-
   set(Mon, Num, PossibleMoves),
   contains_all(Moves, PossibleMoves).
 
-bf(Team, Phrase) :-
+legal(Team) :-
+  % Break the team down into Mons and their Set Numbers
+  Team = [(X, _), (Y, _), (Z, _)],
+  pokemon(X), pokemon(Y), pokemon(Z),
+  % No duplicate mons allowed
+  X \== Y, Y\== Z, X \== Z.
+
+r8(Team, Phrase) :-
   % Break the team down into Mons and their Set Numbers
   Team = [(X, Xnum), (Y, Ynum), (Z, Znum)],
-  pokemon(X), pokemon(Y), pokemon(Z),
+  legal(Team),
 
-  % No duplicate mons allowed
-  X \== Y, Y\== Z, X \== Z,
+  R8_ILLEGAL_MONS = [(dragonite, _), (tyranitar, _), (articuno, 5), (articuno, 6),
+    (zapdos, 5), (zapdos, 6), (moltres, 5), (moltres, 6), (raikou, 5), (raikou, 6),
+    (entei, 5), (entei, 6), (suicune, 5), (suicune, 6)],
+
+
+  \+member((X, Xnum), R8_ILLEGAL_MONS),
+  \+member((Y, Ynum), R8_ILLEGAL_MONS),
+  \+member((Z, Znum), R8_ILLEGAL_MONS),
 
   set(X, Xnum, [MX1, MX2, MX3, MX4]),
   set(Y, Ynum, [MY1, MY2, MY3, MY4]),
@@ -56,15 +68,7 @@ bf(Team, Phrase) :-
 
   Moves = [MX1, MX2, MX3, MX4, MY1, MY2, MY3, MY4, MZ1, MZ2, MZ3, MZ4],
   trainer_style(Phrase, Moves)
-  .
 
-% team(X, Y, Z, Specialty) :-
-%   pokemon(X), pokemon(Y), pokemon(Z),
-%   X \== Y, Y\== Z, X \== Z,
-%   (
-%     (type(X, Specialty), type(Y, Specialty));
-%     (type(X, Specialty), type(Z, Specialty));
-%     (type(Z, Specialty), type(Y, Specialty))
-%   ).
-%
+  % TODO add no duplicate types
+  .
 
