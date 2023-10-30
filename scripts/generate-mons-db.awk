@@ -9,10 +9,8 @@ NR == 1 { next }
   number = $4 == "X" ? 10 : $4
 
   types[species] = tolower($1)
-  moves[species, number, 1] = $7
-  moves[species, number, 2] = $8
-  moves[species, number, 3] = $9
-  moves[species, number, 4] = $10
+  sets[species, number] = sprintf("'%s', '%s', '%s', '%s'",
+      tolower($7), tolower($8), tolower($9), tolower($10))
 }
 
 END {
@@ -30,11 +28,11 @@ END {
     }
   }
 
-  for (mon in moves) {
+  for (mon in sets) {
     split(mon, separate, SUBSEP)
     species = separate[1]
     num = separate[2]
-    move = moves[mon]
-    printf("move(%s, %s, '%s').\n", species, num, tolower(move)) > "db/sets.pro"
+    moves = sets[mon]
+    printf("set(%s, %s, [%s]).\n", species, num, moves) > "db/sets.pro"
   }
 }
