@@ -1,8 +1,4 @@
-r8([(aerodactyl, Xnum), Y, Z], slow), moves_seen(aerodactyl, Xnum, [earthquake]).
-
-r8([(aerodactyl, Xnum), Y, Z], slow), member(Xnum, [2, 4]).
-
-r8([(X, Xnum), Y, Z], slow), moves_seen(X, Xnum, [earthquake]), X = aerodactyl.
+r8([(aerodactyl, Xnum)], Team, slow), moves_seen(aerodactyl, Xnum, [earthquake]).
 
 % style_matches(flow, 1, [hail, sandstorm, aromatherapy]).
 % trainer_style(X, [attract, block, disable, encore, tickle, leer]).

@@ -41,6 +41,13 @@ moves_seen(Mon, Num, Moves) :-
   set(Mon, Num, PossibleMoves),
   contains_all(Moves, PossibleMoves).
 
+% List the types of a team
+types([], []).
+types([Lead|Rest], Types) :-
+  findall(Type, type(Lead, Type), LeadTypes),
+  types(Rest, TailTypes),
+  append(LeadTypes, TailTypes, Types).
+
 legal(Team) :-
   % Break the team down into Mons and their Set Numbers
   Team = [(X, _), (Y, _), (Z, _)],
@@ -52,11 +59,12 @@ r8(Team, Phrase) :-
   % Break the team down into Mons and their Set Numbers
   Team = [(X, Xnum), (Y, Ynum), (Z, Znum)],
   legal(Team),
+  types(Team, Types),
+  fd_all_different(Types), % TODO this needs to actually count and make sure there isn't a plurality
 
   R8_ILLEGAL_MONS = [(dragonite, _), (tyranitar, _), (articuno, 5), (articuno, 6),
     (zapdos, 5), (zapdos, 6), (moltres, 5), (moltres, 6), (raikou, 5), (raikou, 6),
     (entei, 5), (entei, 6), (suicune, 5), (suicune, 6)],
-
 
   \+member((X, Xnum), R8_ILLEGAL_MONS),
   \+member((Y, Ynum), R8_ILLEGAL_MONS),
@@ -68,7 +76,5 @@ r8(Team, Phrase) :-
 
   Moves = [MX1, MX2, MX3, MX4, MY1, MY2, MY3, MY4, MZ1, MZ2, MZ3, MZ4],
   trainer_style(Phrase, Moves)
-
-  % TODO add no duplicate types
   .
 
