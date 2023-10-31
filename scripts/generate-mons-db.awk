@@ -1,5 +1,8 @@
 BEGIN {
   FS = "\t"
+  print "% THIS IS A GENERATED FILE"
+  print "% It's created by parsing the battle factory TSVs with an awk script."
+  print ""
 }
 
 NR == 1 { next }

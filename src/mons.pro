@@ -1,3 +1,6 @@
+% THIS IS A GENERATED FILE
+% It's created by parsing the battle factory TSVs with an awk script.
+
 pokemon(aerodactyl).
 pokemon(steelix).
 pokemon(electabuzz).
