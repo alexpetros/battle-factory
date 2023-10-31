@@ -1,116 +1,5 @@
 % THIS IS A GENERATED FILE
 % It's created by parsing the battle factory TSVs with an awk script.
-
-pokemon(aerodactyl).
-pokemon(steelix).
-pokemon(electabuzz).
-pokemon(breloom).
-pokemon(moltres).
-pokemon(zapdos).
-pokemon(claydol).
-pokemon(donphan).
-pokemon(clefable).
-pokemon(rapidash).
-pokemon(regirock).
-pokemon(gardevoir).
-pokemon(machamp).
-pokemon(exeggutor).
-pokemon(sceptile).
-pokemon(quagsire).
-pokemon(blastoise).
-pokemon(cradily).
-pokemon(latias).
-pokemon(lanturn).
-pokemon(medicham).
-pokemon(weezing).
-pokemon(shiftry).
-pokemon(miltank).
-pokemon(dragonite).
-pokemon(suicune).
-pokemon(crobat).
-pokemon(typhlosion).
-pokemon(hypno).
-pokemon(xatu).
-pokemon(heracross).
-pokemon(jynx).
-pokemon(shuckle).
-pokemon(victreebel).
-pokemon(latios).
-pokemon(exploud).
-pokemon(fearow).
-pokemon(slowking).
-pokemon(armaldo).
-pokemon(jolteon).
-pokemon(umbreon).
-pokemon(flareon).
-pokemon(muk).
-pokemon(raichu).
-pokemon(swampert).
-pokemon(aggron).
-pokemon(gengar).
-pokemon(houndoom).
-pokemon(dugtrio).
-pokemon(glalie).
-pokemon(golem).
-pokemon(manectric).
-pokemon(gyarados).
-pokemon(forretress).
-pokemon(slowbro).
-pokemon(ampharos).
-pokemon(ursaring).
-pokemon(nidoking).
-pokemon(tauros).
-pokemon(slaking).
-pokemon(lapras).
-pokemon(altaria).
-pokemon(flygon).
-pokemon(charizard).
-pokemon(electrode).
-pokemon(wailord).
-pokemon(kingdra).
-pokemon(whiscash).
-pokemon(mr_mime).
-pokemon(marowak).
-pokemon(magmar).
-pokemon(misdreavus).
-pokemon(snorlax).
-pokemon(entei).
-pokemon(starmie).
-pokemon(porygon2).
-pokemon(dodrio).
-pokemon(walrein).
-pokemon(skarmory).
-pokemon(salamence).
-pokemon(blaziken).
-pokemon(rhydon).
-pokemon(blissey).
-pokemon(feraligatr).
-pokemon(tentacruel).
-pokemon(tyranitar).
-pokemon(dusclops).
-pokemon(articuno).
-pokemon(alakazam).
-pokemon(espeon).
-pokemon(granbull).
-pokemon(hariyama).
-pokemon(golduck).
-pokemon(ludicolo).
-pokemon(metagross).
-pokemon(milotic).
-pokemon(venusaur).
-pokemon(ninetales).
-pokemon(registeel).
-pokemon(regice).
-pokemon(kangaskhan).
-pokemon(vaporeon).
-pokemon(dewgong).
-pokemon(raikou).
-pokemon(arcanine).
-pokemon(nidoqueen).
-pokemon(scizor).
-pokemon(vileplume).
-pokemon(meganium).
-
 type(aerodactyl, rock).
 type(aerodactyl, flying).
 type(steelix, ground).
@@ -276,6 +165,8 @@ type(scizor, steel).
 type(vileplume, grass).
 type(vileplume, poison).
 type(meganium, grass).
+
+pokemon(X) :- type(X, _).
 
 set(gyarados, 2, ['hydro pump', 'thunderbolt', 'fire blast', 'blizzard']).
 set(gyarados, 3, ['surf', 'thunder', 'rain dance', 'earthquake']).
