@@ -43,8 +43,9 @@ moves_seen(Mon, Num, Moves) :-
 
 % List the types of a team
 types([], []).
-types([Lead|Rest], Types) :-
-  findall(Type, type(Lead, Type), LeadTypes),
+types([(LeadMon, _)|Rest], Types) :-
+  pokemon(LeadMon),
+  findall(Type, type(LeadMon, Type), LeadTypes),
   types(Rest, TailTypes),
   append(LeadTypes, TailTypes, Types).
 
