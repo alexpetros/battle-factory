@@ -7,15 +7,15 @@ run: bf
 
 .PHONY: test
 test: bf
-	gprolog --consult-file tests --entry-goal run_tests
+	gprolog --consult-file src/tests --entry-goal run_tests
 	@echo "Tests Pass!"
 
-bf: db/%.pro
-	gplc ./db/bf.pro -o bf
+bf: src/mons.pro src/bf.pro
+	gplc ./src/bf.pro -o bf
 
 .PHONY: inter
-inter: db/%.pro
-	gprolog --consult-file db/bf.pro
+inter: src/mons.pro src/bf.pro
+	gprolog --consult-file src/bf.pro
 
-db/%.pro: scripts/generate-mons-db.awk data/r4-beyond-mons.tsv
-	awk -f ./scripts/generate-mons-db.awk ./data/r4-beyond-mons.tsv
+src/mons.pro: scripts/generate-mons-db.awk data/r4-beyond-mons.tsv
+	awk -f ./scripts/generate-mons-db.awk ./data/r4-beyond-mons.tsv > src/mons.pro

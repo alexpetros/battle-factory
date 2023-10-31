@@ -15,24 +15,27 @@ NR == 1 { next }
 
 END {
   for (mon in types) {
-    print "pokemon("mon")." > "db/mons.pro"
+    print "pokemon("mon")."
   }
+  print ""
 
   for (mon in types) {
     split(types[mon], current_types, " ")
 
     has_secondary_type = !match(current_types[2], "^\w*$")
-    print "type("mon", "current_types[1]")." > "db/mons.pro"
+    print "type("mon", "current_types[1]")."
     if (has_secondary_type == 1) {
-      print "type("mon", "current_types[2]")." > "db/mons.pro"
+      print "type("mon", "current_types[2]")."
     }
   }
+  print ""
 
   for (mon in sets) {
     split(mon, separate, SUBSEP)
     species = separate[1]
     num = separate[2]
     moves = sets[mon]
-    printf("set(%s, %s, [%s]).\n", species, num, moves) > "db/sets.pro"
+    printf("set(%s, %s, [%s]).\n", species, num, moves)
   }
+  print ""
 }

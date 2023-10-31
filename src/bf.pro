@@ -1,6 +1,5 @@
-:- include('db/mons.pro').
-:- include('db/sets.pro').
-:- include('db/moves.pro').
+:- include('mons.pro').
+:- include('moves.pro').
 
 % Return true if every member of the list is distinct
 no_repeats([]).

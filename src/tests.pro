@@ -1,4 +1,4 @@
-:- include('db/bf.pro').
+:- include('bf.pro').
 
 test_suite :-
   pokemon(dragonite),
