@@ -5,6 +5,11 @@ all: run
 run: bf
 	./bf
 
+.PHONY: test
+test: bf
+	gprolog --consult-file tests --entry-goal run_tests
+	@echo "Tests Pass!"
+
 bf: db/%.pro
 	gplc ./db/bf.pro -o bf
 
