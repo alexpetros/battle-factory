@@ -2,6 +2,12 @@
 :- include('db/sets.pro').
 :- include('db/moves.pro').
 
+% Return true if every member of the list is distinct
+no_repeats([]).
+no_repeats([Head|Tail]) :-
+  \+member(Head, Tail),
+  no_repeats(Tail).
+
 % True if List contains all the items in the first parameter
 contains_all([], _).
 contains_all([Head|Tail], List) :-
@@ -68,7 +74,7 @@ r8(Team, Phrase) :-
   Team = [(X, Xnum), (Y, Ynum), (Z, Znum)],
   legal(Team),
   types(Team, Types),
-  fd_all_different(Types),
+  no_repeats(Types),
 
   R8_ILLEGAL_MONS = [(dragonite, _), (tyranitar, _), (articuno, 5), (articuno, 6),
     (zapdos, 5), (zapdos, 6), (moltres, 5), (moltres, 6), (raikou, 5), (raikou, 6),
