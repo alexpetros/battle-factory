@@ -48,6 +48,7 @@ legal(Team) :-
   % No duplicate mons allowed
   X \== Y, Y\== Z, X \== Z.
 
+
 r8(Team, Phrase) :-
   % Break the team down into Mons and their Set Numbers
   Team = [(X, Xnum), (Y, Ynum), (Z, Znum)],
@@ -70,4 +71,8 @@ r8(Team, Phrase) :-
   trainer_style(Phrase, Moves)
   .
 
-% r8(Team, Phrase, Type) :-
+r8([], Team, Phrase) :-
+  r8(Team, Phrase),
+  Team = [(X, _), (Y, _), (Z,_)],
+  sort([X, Y, Z], [X, Y, Z]).
+

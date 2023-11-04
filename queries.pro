@@ -7,7 +7,7 @@ sort([ Type1, Type2 ], [ Type1, Type2 ]),
 sort([X, Y, Z], [X, Y, Z])
 .
 
-r8(Team, slow).
+r8([], Team, slow).
 
 r8([(aerodactyl, Xnum), Y, Z], slow), moves_seen(aerodactyl, Xnum, [earthquake]).
 
