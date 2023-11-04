@@ -13,7 +13,7 @@ src/mons.pro: scripts/generate-mons-db.awk data/r4-beyond-mons.tsv
 
 .PHONY: test
 test:
-	gprolog --consult-file src/tests --entry-goal run_tests
+	gprolog --consult-file tests/tests.pro --entry-goal run_tests
 	@echo "Tests Pass!"
 
 .PHONY: inter
