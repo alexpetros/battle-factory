@@ -3,24 +3,36 @@
 :- include('utils.pro').
 
 % True if Style is found at least X times in the list
-style_matches(_, 0, X) :- is_list(X).
-style_matches(Style, Count, [Head|Tail]) :-
+meets_threshold(_, 0, X) :- is_list(X).
+meets_threshold(Style, Count, [Head|Tail]) :-
   style(Style, Head),
   NextCount is Count - 1,
-  style_matches(Style, NextCount, Tail).
-style_matches(Style, Count, [Head|Tail]) :-
+  meets_threshold(Style, NextCount, Tail).
+meets_threshold(Style, Count, [Head|Tail]) :-
   \+style(Style, Head),
-  style_matches(Style, Count, Tail).
+  meets_threshold(Style, Count, Tail).
 
-% TODO add "flexible" style
-trainer_style(flow, Moves) :- style_matches(flow, 2, Moves), !.
-trainer_style(unpredictable, Moves) :- style_matches(unpredictable, 2, Moves), !.
-trainer_style(weakening, Moves) :- style_matches(weakening, 2, Moves), !.
-trainer_style(risk, Moves) :- style_matches(risk, 2, Moves), !.
-trainer_style(endurance, Moves) :- style_matches(endurance, 3, Moves), !.
-trainer_style(slow, Moves) :- style_matches(slow, 3, Moves), !.
-trainer_style(preparation, Moves) :- style_matches(preparation, 3, Moves), !.
-trainer_style(free, _).
+style_threshold(flow, Moves) :- meets_threshold(flow, 2, Moves).
+style_threshold(unpredictable, Moves) :- meets_threshold(unpredictable, 2, Moves).
+style_threshold(weakening, Moves) :- meets_threshold(weakening, 2, Moves).
+style_threshold(risk, Moves) :- meets_threshold(risk, 2, Moves).
+style_threshold(endurance, Moves) :- meets_threshold(endurance, 3, Moves).
+style_threshold(slow, Moves) :- meets_threshold(slow, 3, Moves).
+style_threshold(preparation, Moves) :- meets_threshold(preparation, 3, Moves).
+
+trainer_style(free, Moves) :- \+style_threshold(_, Moves), !.
+trainer_style(flexible, Moves) :-
+  setof(Type, style_threshold(Type, Moves), Matches),
+  length(Matches, L),
+  L > 2,
+  !.
+trainer_style(flow, Moves) :- style_threshold(flow, Moves), !.
+trainer_style(unpredictable, Moves) :- style_threshold(unpredictable, Moves), !.
+trainer_style(weakening, Moves) :- style_threshold(weakening, Moves), !.
+trainer_style(risk, Moves) :- style_threshold(risk, Moves), !.
+trainer_style(endurance, Moves) :- style_threshold(endurance, Moves), !.
+trainer_style(slow, Moves) :- style_threshold(slow, Moves), !.
+trainer_style(preparation, Moves) :- style_threshold(preparation, Moves), !.
 
 moves_seen(Mon, Num, Moves) :-
   set(Mon, Num, PossibleMoves),
@@ -72,7 +84,16 @@ r8(Team, Phrase) :-
   .
 
 r8([], Team, Phrase) :-
-  r8(Team, Phrase),
   Team = [(X, _), (Y, _), (Z,_)],
-  sort([X, Y, Z], [X, Y, Z]).
+  sort([X, Y, Z], [X, Y, Z]),
+  r8(Team, Phrase).
+
+r8([Lead], Team, Phrase) :-
+  Team = [Lead, (Y, _), (Z, _)],
+  sort([Y, Z], [Y, Z]),
+  r8(Team, Phrase).
+
+r8([Lead, Mid], Team, Phrase) :-
+  Team = [Lead, Mid, (_, _)],
+  r8(Team, Phrase).
 
