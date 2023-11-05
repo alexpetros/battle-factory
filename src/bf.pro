@@ -20,19 +20,18 @@ style_threshold(endurance, Moves) :- meets_threshold(endurance, 3, Moves).
 style_threshold(slow, Moves) :- meets_threshold(slow, 3, Moves).
 style_threshold(preparation, Moves) :- meets_threshold(preparation, 3, Moves).
 
-trainer_style(free, Moves) :- \+style_threshold(_, Moves), !.
-trainer_style(flexible, Moves) :-
-  setof(Type, style_threshold(Type, Moves), Matches),
-  length(Matches, L),
-  L > 2,
-  !.
-trainer_style(flow, Moves) :- style_threshold(flow, Moves), !.
-trainer_style(unpredictable, Moves) :- style_threshold(unpredictable, Moves), !.
-trainer_style(weakening, Moves) :- style_threshold(weakening, Moves), !.
-trainer_style(risk, Moves) :- style_threshold(risk, Moves), !.
-trainer_style(endurance, Moves) :- style_threshold(endurance, Moves), !.
-trainer_style(slow, Moves) :- style_threshold(slow, Moves), !.
-trainer_style(preparation, Moves) :- style_threshold(preparation, Moves), !.
+set_of_matched_styles(Styles, Moves) :- setof(Type, style_threshold(Type, Moves), Styles).
+
+trainer_style(flexible, Styles) :- length(Styles, L), L > 2, !.
+trainer_style(flexible, Styles) :- length(Styles, L), L > 0, !.
+trainer_style(flow, Styles) :- member(flow, Styles), !.
+trainer_style(unpredictable, Styles) :- member(unpredictable, Styles), !.
+trainer_style(weakening, Styles) :- member(weakening, Styles), !.
+trainer_style(risk, Styles) :- member(risk, Styles), !.
+trainer_style(endurance, Styles) :- member(endurance, Styles), !.
+trainer_style(slow, Styles) :- member(slow, Styles), !.
+trainer_style(preparation, Styles) :- member(preparation, Styles), !.
+
 
 moves_seen(Mon, Num, Moves) :-
   set(Mon, Num, PossibleMoves),
@@ -80,7 +79,8 @@ r8(Team, Phrase) :-
   set(Z, Znum, [MZ1, MZ2, MZ3, MZ4]),
 
   Moves = [MX1, MX2, MX3, MX4, MY1, MY2, MY3, MY4, MZ1, MZ2, MZ3, MZ4],
-  trainer_style(Phrase, Moves)
+  set_of_matched_styles(Styles, Moves),
+  trainer_style(Phrase, Styles)
   .
 
 r8([], Team, Phrase) :-
