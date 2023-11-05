@@ -7,14 +7,16 @@ sort([ Type1, Type2 ], [ Type1, Type2 ]),
 sort([X, Y, Z], [X, Y, Z])
 .
 
-r8([], Team, slow).
+r8([], Team, slow, water).
 
-r8([(aerodactyl, _)], Team, flexible).
+r8([(aerodactyl, _)], Team, flexible, none).
 
 moves_seen(aerodactyl, Xnum, [earthquake]),
-r8([(aerodactyl, Xnum)], Team, slow).
+r8([(aerodactyl, Xnum)], Team, slow, rock).
 
-r8([(aerodactyl, 1), (breloom, _)], Team, slow).
+r8([(aerodactyl, 1), (breloom, _)], Team, slow, flying).
+
+delete_solo_elements(['water', 'flying', 'dragon', 'dragon'], Result).
 
 % style_matches(flow, 1, [hail, sandstorm, aromatherapy]).
 % trainer_style(X, [attract, block, disable, encore, tickle, leer]).

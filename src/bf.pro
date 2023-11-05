@@ -32,17 +32,9 @@ trainer_style(endurance, Styles) :- member(endurance, Styles), !.
 trainer_style(slow, Styles) :- member(slow, Styles), !.
 trainer_style(preparation, Styles) :- member(preparation, Styles), !.
 
-
 moves_seen(Mon, Num, Moves) :-
   set(Mon, Num, PossibleMoves),
   contains_all(Moves, PossibleMoves).
-
-% Monotype mons
-monotype(Mon) :-
-  pokemon(Mon),
-  findall(Type, type(Mon, Type), List),
-  length(List, N),
-  N = 1.
 
 % List the types of a team
 types([], []).
@@ -60,12 +52,12 @@ legal(Team) :-
   X \== Y, Y\== Z, X \== Z.
 
 
-r8(Team, Phrase) :-
+r8(Team, Phrase, Type) :-
   % Break the team down into Mons and their Set Numbers
   Team = [(X, Xnum), (Y, Ynum), (Z, Znum)],
   legal(Team),
   types(Team, Types),
-  no_repeats(Types),
+  plurality_atom(Types, Type),
 
   R8_ILLEGAL_MONS = [(dragonite, _), (tyranitar, _), (articuno, 5), (articuno, 6),
     (zapdos, 5), (zapdos, 6), (moltres, 5), (moltres, 6), (raikou, 5), (raikou, 6),
@@ -83,17 +75,17 @@ r8(Team, Phrase) :-
   trainer_style(Phrase, Styles)
   .
 
-r8([], Team, Phrase) :-
+r8([], Team, Phrase, Type) :-
   Team = [(X, _), (Y, _), (Z,_)],
   sort([X, Y, Z], [X, Y, Z]),
-  r8(Team, Phrase).
+  r8(Team, Phrase, Type).
 
-r8([Lead], Team, Phrase) :-
+r8([Lead], Team, Phrase, Type) :-
   Team = [Lead, (Y, _), (Z, _)],
   sort([Y, Z], [Y, Z]),
-  r8(Team, Phrase).
+  r8(Team, Phrase, Type).
 
-r8([Lead, Mid], Team, Phrase) :-
+r8([Lead, Mid], Team, Phrase, Type) :-
   Team = [Lead, Mid, (_, _)],
-  r8(Team, Phrase).
+  r8(Team, Phrase, Type).
 
