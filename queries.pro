@@ -7,6 +7,8 @@ sort([ Type1, Type2 ], [ Type1, Type2 ]),
 sort([X, Y, Z], [X, Y, Z])
 .
 
+r8([(aerodactyl, 3), (breloom, 3), (skarmory, 3)], slow, flying).
+
 r8([], Team, slow, water).
 
 r8([(aerodactyl, _)], Team, flexible, none).
@@ -15,6 +17,8 @@ moves_seen(aerodactyl, Xnum, [earthquake]),
 r8([(aerodactyl, Xnum)], Team, slow, rock).
 
 r8([(aerodactyl, 1), (breloom, _)], Team, slow, flying).
+
+r8([(aerodactyl, 1), (breloom, _), (skarmory, _)], Team, slow, flying).
 
 delete_solo_elements(['water', 'flying', 'dragon', 'dragon'], Result).
 

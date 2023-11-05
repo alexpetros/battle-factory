@@ -89,3 +89,6 @@ r8([Lead, Mid], Team, Phrase, Type) :-
   Team = [Lead, Mid, (_, _)],
   r8(Team, Phrase, Type).
 
+r8(Team, Team, Phrase, Type) :-
+  r8(Team, Phrase, Type).
+

@@ -17,6 +17,11 @@ NR == 1 { next }
 
 END {
   for (mon in types) {
+    print "pokemon("mon")."
+  }
+  print ""
+
+  for (mon in types) {
     split(types[mon], current_types, " ")
 
     has_secondary_type = !match(current_types[2], "^\w*$")
@@ -25,9 +30,6 @@ END {
       print "type("mon", "current_types[2]")."
     }
   }
-
-  print ""
-  print "pokemon(X) :- type(X, _)."
   print ""
 
   for (mon in sets) {
